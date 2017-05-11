@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void nhapmang (int a[][10], int n, int m)
+{
+    int i,j;
+    for (i=0; i < n; i++)
+    {
+        for (j=0; j<m; j++)
+            {
+                printf ("a[%d][%d]= ", i+1, j+1);
+                scanf ("%d", &a[i][j]);
+            }
+    }
+}
+
+void xuatmang (int a[][10], int n, int m)
+{
+    int i,j;
+    printf ("mang da nhap la:\n");
+    for ( i=0; i<n; i++)
+    {
+        for ( j=0; j<m; j++)
+            {
+                printf ("%3d ", a[i][j]);
+            }
+        printf ("\n");
+    }
+}
+int tongdong(int a[][10],int m,int n, int d)
+{
+    int j=0,tong=0;
+    for(j;j<n;j++)
+        tong+=a[d][j];
+        return tong;
+
+}
+
+int tongcot(int a[][10], int m,int n,int c)
+{
+    int i=0,tong=0;
+    for(i;i<m;i++)
+        tong+=a[i][c];
+        return tong;
+
+}
+int main()
+{
+    int m,n,tong,c,d;
+    int a[10][10];
+    printf ("nhap so dong va so cot: ");
+    scanf ("%d%d", &m, &n );
+    nhapmang (a,m,n);
+    xuatmang (a,m,n);
+    printf("nhap dong va cot can tinh tong: ");
+    scanf("%d%d",&d,&c);
+    tong=tongdong(a,m,n,d) + tongcot(a,m,n,c);
+    printf("tong la: %d",tong);
+    return 0;
+}
